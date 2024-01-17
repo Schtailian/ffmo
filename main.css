@@ -27,6 +27,7 @@ h1{
     text-align: center;
     border-bottom: 1px solid #d2232a;
     padding:2rem 1rem 1rem 1rem;
+    box-sizing: border-box;
 }
 
 .logo{
