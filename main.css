@@ -32,7 +32,8 @@ h1{
 
 .logo{
     width:10rem;
-    max-width:70%;
+    max-width:30%;
+    height:auto;
 }
 
 .contactBox{
@@ -49,7 +50,8 @@ h1{
 }
 .emergencyBox>.icon{
     color:#d2232a;
-    font-size:4rem;
+    width:4rem;
+    height:4rem;
 }
 .emergencyBox>.number{
     color:#d2232a;
@@ -84,13 +86,6 @@ h1{
     font-size: 1.2rem;
 }
 
-.socialsBox{
-    padding:1rem;
-    border-top:1px solid #ccc;
-    border-bottom:1px solid #ccc;
-    text-align:center;
-}
-
 .socialsLinks{
     text-decoration:none;
     opacity:0.6;
@@ -121,12 +116,5 @@ h1{
 .footer{
     text-align: center;
     font-size: 0.8rem;
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 24
+    padding-bottom:5rem;
 }
