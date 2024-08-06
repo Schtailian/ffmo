@@ -109,7 +109,7 @@ h1{
 }
 .lotterieList li{
     padding:0.5rem;
-    margin:0 0 0.5rem 0;
+    margin:0;
     border-bottom:1px solid #ccc;
     position:relative;
     padding-left:3rem;

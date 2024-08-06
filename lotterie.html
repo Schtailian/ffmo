@@ -49,8 +49,10 @@
                 let resultBox = document.querySelector(".resultBox");
                 
                 searchBox.addEventListener("keyup", function(){
-                    var value = searchBox.value;
-                    console.log(value);
+                    let winner = document.querySelector(".lotterieList>li.winner");
+                    if (winner != null) winner.classList.remove("winner");
+
+                    let value = searchBox.value;
                     if (value.length != 5 || isNaN(value)){
                         resultBox.classList.remove("win");
                         resultBox.classList.remove("lose");
@@ -66,15 +68,26 @@
                     if (result){
                         resultBox.classList.add("win");
                         resultBox.classList.remove("lose");
+
+                        let numbers = document.querySelectorAll(".lotterieList .number");
+                        for(let i = 0; i < numbers.length; i++){
+                            let number = numbers[i];
+                            if (number.innerHTML == value){
+                                number.parentElement.classList.add("winner")
+                            }
+                        }
+
                     }else{
                         resultBox.classList.add("lose");
                         resultBox.classList.remove("win")
                     }
                 });
-                
+
                 searchButton.addEventListener("click", function(){
-                    var value = searchBox.value;
-                    console.log(value);
+                    let winner = document.querySelector(".lotterieList>li.winner");
+                    if (winner != null) winner.classList.remove("winner");
+
+                    let value = searchBox.value;
                     if (value.length != 5 || isNaN(value)){
                         resultBox.classList.remove("win");
                         resultBox.classList.remove("lose");
@@ -90,6 +103,15 @@
                     if (result){
                         resultBox.classList.add("win");
                         resultBox.classList.remove("lose");
+
+                        let numbers = document.querySelectorAll(".lotterieList .number");
+                        for(let i = 0; i < numbers.length; i++){
+                            let number = numbers[i];
+                            if (number.innerHTML == value){
+                                number.parentElement.classList.add("winner")
+                            }
+                        }
+
                     }else{
                         resultBox.classList.add("lose");
                         resultBox.classList.remove("win")
@@ -128,6 +150,10 @@
                     padding:0.5rem;
                     border:1px solid rgba(0,0,0,0.2);
                     margin-top:0.2rem;
+                }
+                .lotterieList>li.winner{
+                    text-decoration: underline;
+                    background:#c3edd4;
                 }
             </style>
         </div>
