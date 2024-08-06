@@ -53,7 +53,11 @@
                     if (value.length != 5 || isNaN(value)){
                         resultBox.classList.remove("win");
                         resultBox.classList.remove("lose");
-                        resultBox.classList.add("info");
+                        if (value.length >= 1){
+                            resultBox.classList.add("info");
+                        }else{
+                            resultBox.classList.remove("info");
+                        }
                         return;
                     }
                     resultBox.classList.remove("info");
