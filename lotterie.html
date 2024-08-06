@@ -34,6 +34,77 @@
         </p>
 
         <h3>Preise</h3>
+        <div>
+            <p>Tippe die 5 Stellige Losnummer ein, um zu sehen ob du gewonnen hast.</p>
+            <label><b>Los#:</b> <input type="search" class="searchBox" value=""/></label>
+            <button class="searchBtn">Suchen</button>
+            <div class="resultBox">
+                <div class="win">Herzlichen Glückwunsch 🎉</div>
+                <div class="lose">Leider Pech gehabt 😞</div>
+                <div class="info">Keine gültige Losnummer</div>
+            </div>
+            <script>
+                let searchBox = document.querySelector(".searchBox");
+                let searchButton = document.querySelector(".searchBtn");
+                let resultBox = document.querySelector(".resultBox");
+                function searchLotterie(){
+                    var value = searchBox.value;
+                    console.log(value);
+                    if (value.length != 5 || isNaN(value)){
+                        resultBox.classList.remove("win");
+                        resultBox.classList.remove("lose");
+                        resultBox.classList.add("info");
+                        return;
+                    }
+                    resultBox.classList.remove("info");
+                    var result = window.find(value);
+                    if (result){
+                        resultBox.classList.add("win");
+                        resultBox.classList.remove("lose");
+                    }else{
+                        resultBox.classList.add("lose");
+                        resultBox.classList.remove("win")
+                    }
+                }
+
+                searchBox.addEventListener("keyup", searchLotterie);
+                searchButton.addEventListener("click", searchLotterie);
+            </script>
+            <style>
+                .resultBox, .resultBox>.win, .resultBox>.lose, .resultBox>.info{
+                    display:none;
+                }
+                .resultBox.win,
+                .resultBox.win>.win,
+                .resultBox.lose,
+                .resultBox.lose>.lose,
+                .resultBox.info,
+                .resultBox.info>.info
+                {
+                    display:block;
+                }
+
+                .resultBox.win>.win{
+                    color:#fff;
+                    background: #22a655;
+                    border-radius: 0.2rem;
+                    padding:0.5rem;
+                    font-weight:700;
+                    border:1px solid rgba(0,0,0,0.2);
+                    margin-top:0.2rem;
+                }
+
+                .resultBox.lose>.lose{
+                    color:#fff;
+                    background: #d2232a;
+                    font-weight:700;
+                    border-radius: 0.2rem;
+                    padding:0.5rem;
+                    border:1px solid rgba(0,0,0,0.2);
+                    margin-top:0.2rem;
+                }
+            </style>
+        </div>
         <ul class="lotterieList">
             <li><div class='position'></div><div class='number'>Los#</div><b>Preis</b></li>
             <li><div class='position'>1</div><div class='number'>11893</div>E- Bike Specialized Turbo Levo Alloy<div>RH Racing/Volksbank/F.F Mitterolang Preis 6400</div></li>
