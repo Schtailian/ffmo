@@ -47,7 +47,8 @@
                 let searchBox = document.querySelector(".searchBox");
                 let searchButton = document.querySelector(".searchBtn");
                 let resultBox = document.querySelector(".resultBox");
-                function searchLotterie(){
+                
+                searchBox.addEventListener("keyup", function(){
                     var value = searchBox.value;
                     console.log(value);
                     if (value.length != 5 || isNaN(value)){
@@ -69,10 +70,31 @@
                         resultBox.classList.add("lose");
                         resultBox.classList.remove("win")
                     }
-                }
-
-                searchBox.addEventListener("keyup", searchLotterie);
-                searchButton.addEventListener("click", searchLotterie);
+                });
+                
+                searchButton.addEventListener("click", function(){
+                    var value = searchBox.value;
+                    console.log(value);
+                    if (value.length != 5 || isNaN(value)){
+                        resultBox.classList.remove("win");
+                        resultBox.classList.remove("lose");
+                        if (value.length >= 1){
+                            resultBox.classList.add("info");
+                        }else{
+                            resultBox.classList.remove("info");
+                        }
+                        return;
+                    }
+                    resultBox.classList.remove("info");
+                    var result = window.find(value);
+                    if (result){
+                        resultBox.classList.add("win");
+                        resultBox.classList.remove("lose");
+                    }else{
+                        resultBox.classList.add("lose");
+                        resultBox.classList.remove("win")
+                    }
+                });
             </script>
             <style>
                 .resultBox, .resultBox>.win, .resultBox>.lose, .resultBox>.info{
