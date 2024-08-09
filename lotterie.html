@@ -64,19 +64,20 @@
                         return;
                     }
                     resultBox.classList.remove("info");
-                    var result = window.find(value);
+
+                    let result = false;
+                    let numbers = document.querySelectorAll(".lotterieList .number");
+                    for(let i = 0; i < numbers.length; i++){
+                        let number = numbers[i];
+                        if (number.innerHTML == value){
+                            number.parentElement.classList.add("winner");
+                            result = true;
+                        }
+                    }
+
                     if (result){
                         resultBox.classList.add("win");
                         resultBox.classList.remove("lose");
-
-                        let numbers = document.querySelectorAll(".lotterieList .number");
-                        for(let i = 0; i < numbers.length; i++){
-                            let number = numbers[i];
-                            if (number.innerHTML == value){
-                                number.parentElement.classList.add("winner")
-                            }
-                        }
-
                     }else{
                         resultBox.classList.add("lose");
                         resultBox.classList.remove("win")
@@ -99,19 +100,20 @@
                         return;
                     }
                     resultBox.classList.remove("info");
-                    var result = window.find(value);
+
+                    let result = false;
+                    let numbers = document.querySelectorAll(".lotterieList .number");
+                    for(let i = 0; i < numbers.length; i++){
+                        let number = numbers[i];
+                        if (number.innerHTML == value){
+                            number.parentElement.classList.add("winner");
+                            result = true;
+                        }
+                    }
+
                     if (result){
                         resultBox.classList.add("win");
                         resultBox.classList.remove("lose");
-
-                        let numbers = document.querySelectorAll(".lotterieList .number");
-                        for(let i = 0; i < numbers.length; i++){
-                            let number = numbers[i];
-                            if (number.innerHTML == value){
-                                number.parentElement.classList.add("winner")
-                            }
-                        }
-
                     }else{
                         resultBox.classList.add("lose");
                         resultBox.classList.remove("win")
