@@ -47,12 +47,16 @@
                 let searchBox = document.querySelector(".searchBox");
                 let searchButton = document.querySelector(".searchBtn");
                 let resultBox = document.querySelector(".resultBox");
+                let prevValue = null;
                 
                 searchBox.addEventListener("keyup", function(){
+                    let value = searchBox.value;
+                    if (prevValue == value) return;
+                    prevValue = value;
+                    
                     let winner = document.querySelector(".lotterieList>li.winner");
                     if (winner != null) winner.classList.remove("winner");
 
-                    let value = searchBox.value;
                     if (value.length != 5 || isNaN(value)){
                         resultBox.classList.remove("win");
                         resultBox.classList.remove("lose");
@@ -71,6 +75,7 @@
                         let number = numbers[i];
                         if (number.innerHTML == value){
                             number.parentElement.classList.add("winner");
+                            number.scrollIntoView({ behavior: "smooth", block: "center"});
                             result = true;
                         }
                     }
@@ -107,6 +112,7 @@
                         let number = numbers[i];
                         if (number.innerHTML == value){
                             number.parentElement.classList.add("winner");
+                            number.scrollIntoView({ behavior: "smooth", block: "center"});
                             result = true;
                         }
                     }
